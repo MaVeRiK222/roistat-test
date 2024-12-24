@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Тестовое Roistat</title>
+  <link href="/src/style/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="layout">
+    <form class="form">
+      <div class="form-input-container">
+        <label>Имя</label>
+        <input
+          name="name"
+          label="Имя"
+          class="form-input"
+          type="text"
+          required
+        />
+      </div>
+      <div class="form-input-container">
+        <label>Почта</label>
+        <input name="email" class="form-input" type="email" required />
+      </div>
+      <div class="form-input-container">
+        <label>Телефон</label>
+        <input name="phone" class="form-input" type="phone" required />
+      </div>
+      <div class="form-input-container">
+        <label>Цена</label>
+        <input name="price" class="form-input" type="number" required />
+      </div>
+      <input hidden name="timer" value="0" />
+      <button>Отправить</button>
+    </form>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/src/js/sendForm.js"></script>
