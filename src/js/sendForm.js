@@ -13,7 +13,6 @@ let roistatFormHanlderfunction = function () {
         if (isDataValid(data)) {
             sendData(data);
         }
-        else { console.log('Данные не прошли валидацию'); }
     });
 
     setTimeout(() => {
@@ -42,7 +41,6 @@ let roistatFormHanlderfunction = function () {
             data: data,
             success: function (response) {
                 alert("Данные отправлены");
-                console.log(response);
             },
             error: function (xhr, status, error) {
                 alert("Произошла ошибка " + error);
