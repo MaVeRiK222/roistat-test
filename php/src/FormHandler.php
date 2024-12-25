@@ -34,7 +34,8 @@ class FormHandler
     public function process(Logger $log)
     {
         if (!$this->isFormDataValid()) {
-            return;
+            http_response_code(400);
+            die;
         }
 
         $token = new AccessToken([
@@ -162,8 +163,8 @@ class FormHandler
 
     private function isNameValid()
     {
-        if (empty($this->data['price'])) return false;
-        return (!is_numeric($this->data['name']) && is_string($this->data['name']));
+        if (empty($this->data['name'])) return false;
+        return (!is_numeric($this->data['name']) && is_string($this->data['name']) && preg_match('/^[\p{L}\s]+$/u', $this->data['name']));
     }
 
     private function isPhoneValid()
