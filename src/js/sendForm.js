@@ -1,10 +1,4 @@
 let roistatFormHanlderfunction = function () {
-    const NAME_MATCHING = {
-        'name': 'Имя',
-        'email': 'Почта',
-        'phone': 'Телефон',
-        'price': 'Цена'
-    }
 
     const validateFunctions = {
         'name': validateName,
@@ -49,7 +43,18 @@ let roistatFormHanlderfunction = function () {
     }
 
     function sendData(data) {
-        console.log('Отправили данные');
+        $.ajax({
+            url: "/php/webhook.php",
+            type: "POST",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            data: data,
+            success: function (response) {
+                alert("Данные отправлены");
+            },
+            error: function (xhr, status, error) {
+                alert("Произошла ошибка " + error);
+            }
+        });
     }
 
     function validateName(data) {
